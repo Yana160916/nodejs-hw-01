@@ -1,5 +1,5 @@
-const PATH_DB = "../db/db.json";
+import path from 'node:path';
+const pathToWorkDir = path.join(process.cwd());
 
-module.exports = {
-  PATH_DB,
-};
+export const PATH_DB = path.join(pathToWorkDir, 'src', 'db', 'db.json');
+console.log(PATH_DB);
