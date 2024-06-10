@@ -1,18 +1,18 @@
-import fs from "fs";
-import path from "node:path";
-import { createFakeContact } from "../utils/createFakeContact.js";
+import fs from 'fs';
+import path from 'node:path';
+import { createFakeContact } from '../utils/createFakeContact.js';
 
-const dbPath = path.resolve("src/db/db.json");
+const dbPath = path.resolve('src/db/db.json');
 
 function readContacts() {
   try {
-    const data = fs.readFileSync(dbPath, "utf8");
+    const data = fs.readFileSync(dbPath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
-    if (error.code === "ENOENT") {
+    if (error.code === 'ENOENT') {
       return [];
     } else {
-      console.error("Error reading contacts:", error);
+      console.error('Error reading contacts:', error);
       return [];
     }
   }
@@ -20,9 +20,9 @@ function readContacts() {
 
 function writeContacts(contacts) {
   try {
-    fs.writeFileSync(dbPath, JSON.stringify(contacts, null, 2), "utf8");
+    fs.writeFileSync(dbPath, JSON.stringify(contacts, null, 2), 'utf8');
   } catch (error) {
-    console.error("Error writing contacts:", error);
+    console.error('Error writing contacts:', error);
   }
 }
 
@@ -34,4 +34,4 @@ function addOneContact() {
 }
 
 addOneContact();
-console.log("One new contact added to db.json");
+console.log('One new contact added to db.json');

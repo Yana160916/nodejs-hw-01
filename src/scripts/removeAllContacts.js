@@ -1,14 +1,14 @@
-import fs from "fs";
-import path from "node:path";
+import fs from 'fs';
+import path from 'node:path';
 
-const dbPath = path.resolve("src/db/db.json");
+const dbPath = path.resolve('src/db/db.json');
 
 function removeAllContacts() {
   try {
-    fs.writeFileSync(dbPath, "[]", "utf8");
-    console.log("All contacts removed from db.json");
+    fs.writeFileSync(dbPath, '[]', 'utf8');
+    console.log('All contacts removed from db.json');
   } catch (error) {
-    console.error("Error removing contacts:", error);
+    console.error('Error removing contacts:', error);
   }
 }
 

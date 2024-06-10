@@ -1,11 +1,9 @@
-import { getAllContacts } from "./getAllContacts.js";
+import { PATH_DB } from '../constants/contacts.js';
+import fs from 'node:fs/promises';
 
-function countContacts() {
-  const contacts = getAllContacts();
-  const count = contacts.length;
-  return count;
-}
+export const countContacts = async () => {
+  const contacts = JSON.parse(await fs.readFile(PATH_DB, 'utf-8'));
+  return contacts.length;
+};
 
-console.log("Total number of contacts:", countContacts());
-
-export { countContacts };
+console.log(await countContacts());
